@@ -33,7 +33,6 @@ class StaffShell(cmd.Cmd):
         'Обновить данные сотрудника:  edit ID [-surname Фамилия] [-name Имя] [-post Должность] [-pay Зарплата]'
         self._controller.edit_employee(arg)
 
-
     def do_tojson(self,arg):
         'Экспортировать данные в формате json:  tojson Файл'
         self._controller.export_to_json(arg)
@@ -41,3 +40,7 @@ class StaffShell(cmd.Cmd):
     def do_tocsv(self,arg):
         'Экспортировать данные в формате csv:  tocsv Файл'
         self._controller.export_to_csv(arg)
+
+    def do_end(self, arg):
+        'Закончить работу:  end'
+        return True
