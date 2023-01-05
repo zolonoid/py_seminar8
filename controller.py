@@ -29,13 +29,14 @@ class Controller:
     def del_employee(self,id: str) -> None:
         self._staff.del_employee(int(id))
     
-    def edit_employee(self,id: str,edit: str) -> None:
+    def edit_employee(self,edit: str) -> None:
+        id=int(edit.split()[0])
         surname=self._param_value(edit,'-surname')
         name=self._param_value(edit,'-name')
         post=self._param_value(edit,'-post')
         pay=self._param_value(edit,'-pay')
         fpay=float(pay.replace(',','.')) if pay is not None else None
-        self._staff.edit_employee(int(id),surname,name,post,fpay)
+        self._staff.edit_employee(id,surname,name,post,fpay)
 
     def export_to_json(self,file: str) -> None:
         self._staff.export_to_json(Path(file))
